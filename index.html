@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expenses Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- header starts here -->
+        <header>
+            <div class="logo">
+               <img src="img and icon/wallet.png" alt="">
+            </div>
+            <div class="header-text">
+                <h1>Personal Expenses Tracker</h1>
+                <p>Track your daily expenses and manage your budget</p>
+            </div>
+        </header>
+       <!-- add expense section starts -->
+        <section class="expense-form">
+            <h2><i class="fa-solid fa-circle-plus"></i> Add New Expenses</h2>
+            <form id="expenseForm">
+                <div class="form-group">
+
+                    <div class="input-box">
+                       <label>Expense Title</label>
+                       <input type="text" id="title" placeholder="Enter expense title">
+                    </div>
+
+                    <div class="input-box">
+                       <label>Amount(BDT)</label>
+                       <input type="number" id="amount" placeholder="Enter amount">
+                    </div>
+                    
+                    <div class="input-box">
+                       <label>Category</label>
+                       <select id="category">
+                            <option value="">Select Category</option>
+                            <option>Food</option>
+                            <option>Transport</option>                             
+                            <option>Shopping</option>
+                            <option>Bills</option>
+                            <option>Entertainment</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+
+                     <div class="input-box">
+                         <label>Expense Date</label>
+                        <input type="date" id="date">
+                    </div>
+
+                    <div class="input-box">
+                       <label>Payment Method</label>
+                       <select id="payment">
+                          <option value="">Select Payment</option>
+                          <option>Cash</option>
+                          <option>bKash</option>
+                          <option>Nagad</option>
+                          <option>Card</option>
+                       </select>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                   <button type="submit" id="addBtn" class="add-btn"><i class="fa-solid fa-circle-plus"></i> Add Expense</button>
+                   <button type="button" id="updateBtn" class="update-btn"><i class="fa-solid fa-pen-clip"></i> Update Expense</button>
+                   <button type="reset" id="resetBtn" class="reset-btn"><i class="fa-solid fa-arrows-rotate"></i> Reset Form</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- summary section starts -->
+        <section class="summary-section">
+
+            <div class="summary-card">
+                <div class="card-icon expense">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Expenses</h3>
+                    <h2 id="totalExpense">0 BDT</h2>
+                 </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon transaction">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Total Transactions</h3>
+                    <h2 id="totalTransaction">0</h2>
+                 </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon highest">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Highest Expense</h3>
+                    <h2 id="highestExpense">0 BDT</h2>
+                 </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon lowest">
+                   <i class="fa-solid fa-arrow-trend-down"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Lowest Expense</h3>
+                    <h2 id="lowestExpense">0 BDT</h2>
+                 </div>
+            </div>
+
+            <div class="summary-card">
+                 <div class="card-icon average">
+                      <i class="fa-solid fa-chart-pie"></i>
+                 </div>
+                 <div class="card-content">
+                   <h3>Average Expense</h3>
+                    <h2 id="averageExpense">0 BDT</h2>
+                 </div>
+            </div>
+        </section>
+
+        <!-- expense list table -->
+
+        <section class="expense-list">
+            <div class="table-header">
+                <h2><i class="fa-regular fa-calendar-minus"></i> All Expenses</h2>
+                  <div class="table-buttons">
+                      <button id="exportBtn" class="export-btn"><i class="fa-solid fa-download"></i> Export CSV</button>
+                      <button id="clearBtn" class="clear-btn"><i class="fa-solid fa-trash-can"></i> Clear All</button>
+                  </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="expenseTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Amount (BDT)</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Payment</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenseTableBody">
+                       <tr>
+                        <td>
+                             No expenses added yet.
+                        </td>
+                       </tr>
+                      <!-- table bodies are added by js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+       
+
+    </div>
+     <script src="script.js"></script>
+</body>
+</html>
